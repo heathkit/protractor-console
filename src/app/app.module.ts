@@ -7,11 +7,13 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { CommandsComponent } from './commands.component';
 import { HistoryComponent } from './history.component';
+import { EditorDirective } from './editor.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
     CommandsComponent,
+    EditorDirective,
     HistoryComponent
   ],
   imports: [

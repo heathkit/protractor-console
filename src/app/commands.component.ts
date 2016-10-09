@@ -6,4 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./commands.component.css']
 })
 export class CommandsComponent {
+  baseUrl = "http://www.protractortest.org";
 }
