@@ -1,8 +1,7 @@
 import { AfterViewInit, Directive, Renderer } from '@angular/core';
+import 'codemirror/mode/javascript/javascript'
 
 var CodeMirror = require('codemirror');
-
-//declare var CodeMirror: any;
 
 @Directive({
   selector: '[editor]'
@@ -17,6 +16,9 @@ export class EditorDirective implements AfterViewInit {
         this._renderer.selectRootElement('[editor]'),
         {
           lineNumbers: true,
+          styleActiveLine: true,
+          matchBrackets: true,
+          tabSize: 2,
           mode: {name: "javascript", globalVars: true}
         }
     );

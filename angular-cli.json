@@ -18,7 +18,8 @@
         "styles.css",
         "../node_modules/codemirror/lib/codemirror.css"
       ],
-      "scripts": [],
+      "scripts": [
+      ],
       "environments": {
         "source": "environments/environment.ts",
         "dev": "environments/environment.ts",
@@ -28,6 +29,7 @@
   ],
   "addons": [],
   "packages": [
+    "codemirror"
   ],
   "e2e": {
     "protractor": {
