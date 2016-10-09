@@ -19,6 +19,7 @@ export class EditorDirective implements AfterViewInit {
           styleActiveLine: true,
           matchBrackets: true,
           tabSize: 2,
+          lineWrapping: true,
           mode: {name: "javascript", globalVars: true}
         }
     );

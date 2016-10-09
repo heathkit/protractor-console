@@ -2,7 +2,9 @@
   <div>
       <input class="base-url" md-input placeholder="baseUrl" value="{{baseUrl}}">
   </div>
-  <textarea editor class="commands-display"></textarea>
+  <div class="commands-editor">
+    <textarea editor class="commands-display"></textarea>
+  </div>
   <div class="controls">
       <button md-raised-button (click)="reload()">Reload</button>
       <button md-raised-button (click)="next()">Next</button>

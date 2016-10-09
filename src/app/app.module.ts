@@ -15,8 +15,7 @@ import { DebuggerService } from './debugger.service';
     AppComponent,
     CommandsComponent,
     EditorDirective,
-    HistoryComponent,
-    DebuggerService
+    HistoryComponent
   ],
   imports: [
     BrowserModule,
@@ -24,7 +23,9 @@ import { DebuggerService } from './debugger.service';
     HttpModule,
     MaterialModule.forRoot()
   ],
-  providers: [],
+  providers: [
+    DebuggerService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
