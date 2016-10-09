@@ -4,7 +4,7 @@
   </div>
   <textarea editor class="commands-display"></textarea>
   <div class="controls">
-      <button md-raised-button>Reload</button>
-      <button md-raised-button>Run</button>
+      <button md-raised-button (click)="reload()">Reload</button>
+      <button md-raised-button (click)="next()">Next</button>
   </div>
 </div>
