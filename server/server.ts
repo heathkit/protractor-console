@@ -11,7 +11,7 @@ app.get('/api/clientEvent', (req, res) => {
 
 app.get('/api/get', (req, res) => {
   sendCommand('browser.get("http://protractortest.org");').then((data) => {
-    res.send(data);
+    res.send({success: true, data: data});
   })
 });
 

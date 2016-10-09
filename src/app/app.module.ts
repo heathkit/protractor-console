@@ -8,13 +8,15 @@ import { AppComponent } from './app.component';
 import { CommandsComponent } from './commands.component';
 import { HistoryComponent } from './history.component';
 import { EditorDirective } from './editor.directive';
+import { DebuggerService } from './debugger.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     CommandsComponent,
     EditorDirective,
-    HistoryComponent
+    HistoryComponent,
+    DebuggerService
   ],
   imports: [
     BrowserModule,
