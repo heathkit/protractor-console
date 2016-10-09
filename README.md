@@ -3,7 +3,8 @@
 This project was generated with [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.17.
 
 ## Development server
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Run `ng serve` to start the dev server and `npm start` to start the console server. The console
+server just proxies to the dev server in order to support hot reloading and fast iteration.
 
 ## Code scaffolding
 
