@@ -1,3 +1,9 @@
+# TODO
+  - inject webdriver code to report click events
+  - make console listen and report event stream
+  - parse script and execute commands step by step
+  - display results of commands.. somewhere?
+
 # ProtractorConsole
 
 This project was generated with [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.17.
