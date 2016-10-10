@@ -1,16 +1,21 @@
 import * as express from 'express';
+import * as bodyParser from 'body-parser';
 import { sendCommand } from './protractor-client';
 
 let app = express();
 
 app.use(express.static('dist'));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get('/api/clientEvent', (req, res) => {
   res.send('got event');
 });
 
-app.get('/api/get', (req, res) => {
-  sendCommand('browser.get("http://protractortest.org");').then((data) => {
+app.post('/api/load', (req, res) => {
+  let url = req.body.url;
+  console.log('Navigating to url: ' + url);
+  sendCommand(`browser.get("${url}");`).then((data) => {
     res.send({success: true, data: data});
   })
 });

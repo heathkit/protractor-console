@@ -23,5 +23,13 @@ export class EditorDirective implements AfterViewInit {
           mode: {name: "javascript", globalVars: true}
         }
     );
+
+    //this.editor.onchange(this.changed.bind)
+  }
+
+  changed(instance, changeobj) {
+    console.log('changed');
+    console.log(changeobj);
+
   }
 }

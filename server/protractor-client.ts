@@ -1,4 +1,5 @@
 import * as net from 'net';
+import { Promise } from 'es6-promise';
 
 const TIMEOUT = 60000;
 const debugHost = '127.0.0.1';

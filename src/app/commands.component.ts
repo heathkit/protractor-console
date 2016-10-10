@@ -15,6 +15,8 @@ export class CommandsComponent {
   }
 
   reload() {
-
+    console.log(this.baseUrl);
+    this.dbg.loadUrl(this.baseUrl)
+        .subscribe(data => console.log("got " + data));
   }
 }
