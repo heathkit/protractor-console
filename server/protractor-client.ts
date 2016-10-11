@@ -31,3 +31,39 @@ export function sendCommand(cmd) {
     socket.end();
   });
 }
+
+const relayScript = `
+(function() {
+function sendReq(url, data={}) {
+  function reqListener () {
+    console.log(this.responseText);
+  }
+
+  var xmlhttp = new XMLHttpRequest();
+  xmlhttp.addEventListener('load', reqListener);
+  xmlhttp.open('POST', url);
+  xmlhttp.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
+  xmlhttp.send(JSON.stringify(data));
+};
+document.onclick = (e) => {
+  let data = {
+    'tagName': e.target.tagName,
+    'classList': e.target.classList
+  };
+  console.log('Relaying click');
+  sendReq('http://localhost:4200/api/event', data);
+};
+})();
+`
+
+export function navigateTo(url) {
+  return sendCommand(`browser.get("${url}");`).then((data) => {
+    console.log('executing script')
+    let script = relayScript.replace(/\n/g, '');
+    console.log(script);
+    return sendCommand(`browser.executeScript("${script}")`)
+    //return sendCommand(`browser.executeScript("alert('test')")`)
+  }).then((result) => {
+    console.log('Navigation result' + result);
+  });
+}
