@@ -4,6 +4,12 @@
   - parse script and execute commands step by step
   - display results of commands.. somewhere?
 
+# Running
+
+- In a terminal somewhere, start protractor debug with `protractor --elementExplorer --debuggerServerPort 4242`
+- Start the server with `ts-node server/server.ts`
+- Serve the app by running `npm start`
+
 # ProtractorConsole
 
 This project was generated with [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.17.
