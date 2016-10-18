@@ -1,3 +1,12 @@
 .app {
-    width: 400px;
+    padding: 20px;
+    background-color: #eaeaea;
+    color: rgba(0, 0, 0, 0.87)
+}
+
+.app-content {
+}
+
+.app-content md-card {
+    margin: 20px;
 }

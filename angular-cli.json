@@ -16,7 +16,8 @@
       "mobile": false,
       "styles": [
         "styles.css",
-        "../node_modules/codemirror/lib/codemirror.css"
+        "../node_modules/codemirror/lib/codemirror.css",
+        "console-app-theme.scss"
       ],
       "scripts": [
       ],

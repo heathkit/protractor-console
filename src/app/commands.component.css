@@ -3,12 +3,11 @@
     flex-direction: column;
 }
 
-.base-url {
-    width: 100%;
+.commands .base-url {
+    width: 70%;
 }
 
-.commands-editor {
-    width: 100%;
+.CodeMirror {
     border: 1px solid #eee;
     margin: 10px;
 }

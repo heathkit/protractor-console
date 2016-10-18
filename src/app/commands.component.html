@@ -1,12 +1,11 @@
 <div class="commands">
   <div>
-      <input class="base-url" md-input placeholder="baseUrl" [(ngModel)]="baseUrl">
-      <button md-raised-button (click)="reload()">Reload</button>
+      <md-input class="base-url" placeholder="baseUrl" [(ngModel)]="baseUrl"></md-input>
+      <button md-raised-button color="primary" (click)="reload()">Reload</button>
   </div>
-  <div class="commands-editor">
-    <textarea editor class="commands-display"></textarea>
-  </div>
+  <textarea editor class="commands-display"></textarea>
   <div class="controls">
-      <button md-raised-button (click)="next()">Next</button>
+      <button md-raised-button color="primary" (click)="run()">Run</button>
+      <button md-raised-button color="primary" (click)="next()">Step</button>
   </div>
 </div>
