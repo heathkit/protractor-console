@@ -20,4 +20,14 @@ export class DebuggerService {
 
     return this.http.post('api/load', body, options);
   }
+
+  sendDbgCmd(cmd: string) {
+    let body = JSON.stringify({script: cmd});
+    console.log('Sending cmd')
+    console.log(body);
+    let headers = new Headers({ 'Content-Type': 'application/json' });
+    let options = new RequestOptions({ headers: headers });
+
+    return this.http.post('api/sendCmd', body, options);
+  }
 }

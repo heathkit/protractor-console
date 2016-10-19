@@ -10,6 +10,7 @@ import {EditorComponent} from "./editor.component";
 export class CommandsComponent {
   baseUrl = "http://www.protractortest.org";
   dbg: DebuggerService;
+  dbgOutput = '';
 
   @ViewChild(EditorComponent)
   private editor: EditorComponent;
@@ -26,5 +27,12 @@ export class CommandsComponent {
 
   addCommand(command: string) {
     this.editor.addLine(command);
+  }
+
+  run() {
+    this.dbg.sendDbgCmd(this.editor.getScript()).subscribe((result) => {
+      console.log(result);
+      this.dbgOutput = result.toString();
+    });
   }
 }

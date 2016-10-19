@@ -9,6 +9,7 @@ const debugPort = 4242;
 export function sendCommand(cmd) {
   let socket;
 
+  console.log("Executing command: " + cmd);
   return new Promise((resolve, reject) => {
     socket = net.connect({host: debugHost, port: debugPort}, () => {
       socket.write(cmd + '\r\n');

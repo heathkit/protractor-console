@@ -34,7 +34,19 @@ app.post('/api/load', (req, res) => {
   console.log('Navigating to url: ' + url);
   navigateTo(url).then((data) => {
     res.send({success: true, data: data});
+  }).catch((err) => {
+    res.send({success: false, err: err});
   })
+});
+
+app.post('/api/sendCmd', (req, res) => {
+  console.log('Got command ' + req.body);
+  console.log(req.body.script);
+  sendCommand(req.body.script).then((data) => {
+    console.log('Result')
+    console.log(data);
+    res.send({success: true, output: data});
+  });
 });
 
 // TODO: Combine this with express using the proxy extension?
