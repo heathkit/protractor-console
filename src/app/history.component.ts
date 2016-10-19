@@ -8,9 +8,17 @@ import {ReplaySubject} from 'rxjs/Rx'
   styleUrls: ['./history.component.css']
 })
 export class HistoryComponent {
-  events: ReplaySubject<string>;
+  events: string;
 
   constructor(private eventsService: BrowserEventsService) {
-    this.events = eventsService.browserEventsStream();
+    eventsService.browserEventsStream().subscribe((value) => {
+      // TODO Replace this with elementors suggestions.
+      let event = JSON.parse(value);
+      if (event.id) {
+        this.events = `element(by.id('${event.id}')).click();`;
+      } else {
+        this.events = `element(by.css('.${event.classList[0]}')).click();`;
+      }
+    });
   }
 }
