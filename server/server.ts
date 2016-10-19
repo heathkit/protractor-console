@@ -1,5 +1,7 @@
 import * as express from 'express';
 import * as bodyParser from 'body-parser';
+import { server as WebSocketServer } from 'websocket';
+import * as http from 'http';
 import { sendCommand, navigateTo } from './protractor-client';
 
 // Navigate to a url on startup to inject the client-side recording script.
@@ -14,7 +16,12 @@ var allowCrossDomain = function(req, res, next) {
   next();
 }
 
-let app = express();
+const app = express();
+const server = http.createServer(app);
+const wsServer = new WebSocketServer({
+  httpServer: server,
+  autoAcceptConnections: true
+});
 
 app.use(express.static('dist'));
 app.use(bodyParser.json());
