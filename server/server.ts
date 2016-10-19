@@ -14,14 +14,9 @@ var allowCrossDomain = function(req, res, next) {
   res.header('Access-Control-Allow-Headers', 'Content-Type');
 
   next();
-}
+};
 
 const app = express();
-const server = http.createServer(app);
-const wsServer = new WebSocketServer({
-  httpServer: server,
-  autoAcceptConnections: true
-});
 
 app.use(express.static('dist'));
 app.use(bodyParser.json());
@@ -31,6 +26,7 @@ app.use(allowCrossDomain);
 app.post('/api/event', (req, res) => {
   res.send('got event');
   console.log(req.body);
+  wsServer.broadcast(JSON.stringify(req.body));
 });
 
 app.post('/api/load', (req, res) => {
@@ -38,6 +34,28 @@ app.post('/api/load', (req, res) => {
   console.log('Navigating to url: ' + url);
   navigateTo(url).then((data) => {
     res.send({success: true, data: data});
+  })
+});
+
+// TODO: Combine this with express using the proxy extension?
+let server = http.createServer((request, response) => {
+  response.writeHead(404);
+  response.end();
+});
+server.listen(8080, () => {
+  console.log('Websocket server listening');
+})
+
+const wsServer = new WebSocketServer({
+  httpServer: server,
+  autoAcceptConnections: true
+});
+
+wsServer.on('request', (request) => {
+  let connection = request.accept('events');
+  console.log((new Date()) + ' Connection accepted.');
+  connection.on('close', (reasonCode, desc) => {
+    console.log((new Date() + ' Peer ' + connection.remoteAddress + ' disconnected.'));
   })
 });
 

@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { CommandsComponent } from './commands.component';
 import { HistoryComponent } from './history.component';
 import { EditorDirective } from './editor.directive';
+import { BrowserEventsService } from './browser-events.service';
 import { DebuggerService } from './debugger.service';
 
 @NgModule({
@@ -24,6 +25,7 @@ import { DebuggerService } from './debugger.service';
     MaterialModule.forRoot()
   ],
   providers: [
+    BrowserEventsService,
     DebuggerService
   ],
   bootstrap: [AppComponent]

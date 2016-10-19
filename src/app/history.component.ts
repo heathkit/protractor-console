@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
+import {BrowserEventsService} from './browser-events.service'
+import {ReplaySubject} from 'rxjs/Rx'
 
 @Component({
   selector: 'history',
@@ -6,5 +8,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./history.component.css']
 })
 export class HistoryComponent {
-  title = 'app works!';
+  events: ReplaySubject<string>;
+
+  constructor(private eventsService: BrowserEventsService) {
+    this.events = eventsService.browserEventsStream();
+  }
 }

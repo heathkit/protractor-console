@@ -48,9 +48,12 @@ function sendReq(url, data={}) {
 document.onclick = (e) => {
   let data = {
     'tagName': e.target.tagName,
-    'classList': e.target.classList
+    'id': e.target.id,
+    'classList': e.target.classList,
+    'target' : JSON.stringify(e.target) 
   };
   console.log('Relaying click');
+  console.log(e);
   sendReq('http://localhost:4200/api/event', data);
 };
 })();
