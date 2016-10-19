@@ -50,7 +50,7 @@ document.onclick = (e) => {
     'tagName': e.target.tagName,
     'id': e.target.id,
     'classList': e.target.classList,
-    'target' : JSON.stringify(e.target) 
+    'linkText': e.target.text
   };
   console.log('Relaying click');
   console.log(e);

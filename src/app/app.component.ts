@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import {Component, ViewChild} from '@angular/core';
+import {CommandsComponent} from './commands.component';
 
 @Component({
   selector: 'console-app',
@@ -6,4 +7,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+
+  @ViewChild(CommandsComponent)
+  private commandsComponent: CommandsComponent;
+
+  onAdd(command: string) {
+    this.commandsComponent.addCommand(command);
+  }
 }

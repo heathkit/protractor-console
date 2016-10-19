@@ -6,7 +6,7 @@ var CodeMirror = require('codemirror');
 @Directive({
   selector: '[editor]'
 })
-export class EditorDirective implements AfterViewInit {
+export class EditorComponent implements AfterViewInit {
   editor: any;
 
   constructor(private _renderer: Renderer) {}
@@ -31,5 +31,14 @@ export class EditorDirective implements AfterViewInit {
     console.log('changed');
     console.log(changeobj);
 
+  }
+
+  getScript() {
+    return this.editor.getValue();
+  }
+
+  addLine(value) {
+    return this.editor.setValue(this.editor.getValue() + '\n' +
+        value);
   }
 }

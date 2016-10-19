@@ -7,7 +7,7 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { CommandsComponent } from './commands.component';
 import { HistoryComponent } from './history.component';
-import { EditorDirective } from './editor.directive';
+import { EditorComponent } from './editor.component';
 import { BrowserEventsService } from './browser-events.service';
 import { DebuggerService } from './debugger.service';
 
@@ -15,7 +15,7 @@ import { DebuggerService } from './debugger.service';
   declarations: [
     AppComponent,
     CommandsComponent,
-    EditorDirective,
+    EditorComponent,
     HistoryComponent
   ],
   imports: [
