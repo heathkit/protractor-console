@@ -5,8 +5,9 @@
   </div>
   <textarea editor class="commands-display"></textarea>
   <div class="controls">
+    <button md-raised-button color="primary" (click)="parse()">Parse</button>
     <button md-raised-button color="primary" (click)="run()">Run</button>
-    <button md-raised-button color="primary" (click)="next()">Step</button>
+    <button md-raised-button color="primary" (click)="step()">Step</button>
   </div>
   <pre>
     {{dbgOutput}}
