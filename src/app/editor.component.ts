@@ -65,6 +65,7 @@ export class EditorComponent implements AfterViewInit {
     let current = this.parseTree.body[this.statementIdx];
     if (!current) {
       this.editor.clearGutter("current");
+      this.statementIdx = 0;
       return;
     }
 

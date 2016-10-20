@@ -22,7 +22,7 @@ export class DebuggerService {
   }
 
   sendDbgCmd(cmd: string) {
-    let body = JSON.stringify({script: cmd});
+    let body = JSON.stringify({script: cmd.replace("\n","")});
     console.log('Sending cmd')
     console.log(body);
     let headers = new Headers({ 'Content-Type': 'application/json' });

@@ -63,9 +63,12 @@ export class CommandsComponent implements AfterViewInit {
 
   runStep() {
     let cmd = this.editor.getNextStatement();
+    if(!cmd) {
+      return;
+    }
     console.log(cmd);
     this.dbg.sendDbgCmd(cmd).subscribe((result) => {
-      console.log(result);
+      console.log(result.json());
       this.dbgOutput = result.toString();
     });
   }
